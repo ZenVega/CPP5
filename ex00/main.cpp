@@ -11,8 +11,34 @@
 /* ************************************************************************** */
 
 #include "includes/main.hpp"
+#include <exception>
 
 int main()
 {
+	Bureaucrat no_name;
+	Bureaucrat b1 = Bureaucrat("Wilhelm", 12);
+	Bureaucrat b2 = Bureaucrat("Toni", 150);
+	try
+	{
+		Bureaucrat b3 = Bureaucrat("Henriette", 0);
+	}
+	catch (const Bureaucrat::GradeTooLowException &e)
+	{
+		cout << "Exception type LOW caught: " << e.what() << endl;
+	}
+	cout << b1 << endl;
+	cout << b2 << endl;
+
+	try
+	{
+		b1.increment();
+		b2.decrement();
+	}
+	catch (const std::exception &e)
+	{
+		cout << "Exception caught: " << e.what() << endl;
+	}
+	cout << b1 << endl;
+	cout << b2 << endl;
 	return 0;
 }

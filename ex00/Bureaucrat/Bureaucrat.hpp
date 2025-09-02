@@ -6,7 +6,7 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 10:49:49 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/09/01 14:15:27 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/09/02 11:26:15 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #define BUREAUCRAT_HPP
 
 #include "../includes/CONSTANTS.hpp"
+#include <bits/stdc++.h>
+#include <exception>
 
 class Bureaucrat
 {
@@ -30,7 +32,24 @@ public:
 	void		setGrade(int grade);
 	string		getName(void) const;
 	Bureaucrat &operator=(const Bureaucrat &other);
+
+	void increment(void);
+	void decrement(void);
+	class GradeTooHighException : public std::exception
+	{
+	public:
+		// Override what() function
+		const char *what() const throw(); // c+++98 synthx deprecated in c++11;
+		// const char *what() const noexcept override;
+	};
+
+	class GradeTooLowException : public std::exception
+	{
+	public:
+		const char *what() const throw();
+	};
 };
+;
 
 ostream &operator<<(ostream &out, const Bureaucrat &other);
 

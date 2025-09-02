@@ -6,7 +6,7 @@
 #    By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/10 10:00:21 by uschmidt          #+#    #+#              #
-#    Updated: 2025/09/01 17:04:14 by uschmidt         ###   ########.fr        #
+#    Updated: 2025/09/02 11:40:28 by uschmidt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,9 @@ CC			= c++
 CFLAGS		= -g -Wall -Wextra -Werror -std=c++98 -Wshadow
 
 all: $(NAME) 
+
+run: $(NAME) 
+	./$(NAME)
 
 $(NAME): $(OFILES)
 	$(CC) $(CFLAGS) -o $(SRC_FOLDER)$(NAME) $(OFILES)
