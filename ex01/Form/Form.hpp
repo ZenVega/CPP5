@@ -28,6 +28,7 @@ private:
 public:
 	Form();
 	Form(string name, int grade_sign, int grade_exe);
+	Form(const Form &other);
 	~Form();
 
 	Form &operator=(const Form &other);
@@ -49,7 +50,6 @@ public:
 		const char *what() const throw();
 	};
 };
-;
 
 ostream &operator<<(ostream &out, const Form &other);
 

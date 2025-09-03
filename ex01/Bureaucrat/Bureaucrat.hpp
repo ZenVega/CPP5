@@ -26,6 +26,7 @@ private:
 public:
 	Bureaucrat();
 	Bureaucrat(string name, int grade);
+	Bureaucrat(const Bureaucrat &other);
 	~Bureaucrat();
 
 	int			getGrade(void) const;

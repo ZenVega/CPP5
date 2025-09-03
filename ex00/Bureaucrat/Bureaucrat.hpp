@@ -25,6 +25,7 @@ private:
 
 public:
 	Bureaucrat();
+	Bureaucrat(const Bureaucrat &other);
 	Bureaucrat(string name, int grade);
 	~Bureaucrat();
 

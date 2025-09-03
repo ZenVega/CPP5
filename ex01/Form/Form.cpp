@@ -14,8 +14,8 @@
 
 Form::Form(void) :
 	_name("unknown"),
-	_grade_sign(1),
-	_grade_exe(1),
+	_grade_sign(150),
+	_grade_exe(150),
 	_signed(false)
 {
 	cout << _name << "-Form created" << endl;
@@ -27,7 +27,40 @@ Form::Form(string name, int grade_sign, int grade_exe) :
 	_grade_exe(grade_exe),
 	_signed(false)
 {
+	if (grade_sign > 150 || grade_exe > 150)
+		throw GradeTooHighException();
+	if (grade_sign < 1 || grade_exe < 1)
+		throw GradeTooLowException();
 	cout << _name << "-Form created" << endl;
+}
+
+Form::Form(const Form &other) :
+	_name(other.getName()),
+	_signed(other.getSigned()),
+	_grade_sign(other.getGradeSign()),
+	_grade_exe(other.getGradeExe())
+{
+	cout << "An Form of the name " << _name << " got copied" << endl;
+}
+
+string Form::getName(void) const
+{
+	return _name;
+}
+
+bool Form::getSigned(void) const
+{
+	return _signed;
+}
+
+int Form::getGradeSign(void) const
+{
+	return _grade_sign;
+}
+
+int Form::getGradeExe(void) const
+{
+	return _grade_exe;
 }
 
 Form &Form::operator=(const Form &other)
@@ -46,28 +79,18 @@ Form::~Form()
 	cout << "The Form of name: " << _name << " gets archived" << endl;
 }
 
-int Form::getGrade(void) const
-{
-	return _grade;
-}
-
-string Form::getName(void) const
-{
-	return _name;
-}
-
 const char *Form::GradeTooHighException::what() const throw()
 {
-	return "This grade is beyond the Burocreats boundaries";
+	return "A Burocreat cannot have that high a rank";
 }
 
 const char *Form::GradeTooLowException::what() const throw()
 {
-	return "A Burocreats may never have that low a grade";
+	return "A Burocreats can never have that low a grade";
 }
 
 ostream &operator<<(ostream &out, const Form &other)
 {
-	out << other.getName() << ", bureaucrat grade " << other.getGrade();
+	out << other.getName() << ", form grade to sign" << other.getGradeSign() << ", form grade to exe" << other.getGradeSign();
 	return out;
 }
