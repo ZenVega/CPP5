@@ -20,18 +20,21 @@ int main()
 	Bureaucrat b2 = Bureaucrat("Toni", 150);
 	try
 	{
-		Bureaucrat b3 = Bureaucrat("Henriette", 0);
+		Form f1 = Form();
+		cout << f1 << endl;
+		f1.beSigned(b1);
+		Form f2 = Form("treaty", 20, 50);
+		cout << f2 << endl;
+		Form f3 = Form("bill", 20, 250);
+		cout << f3 << endl;
 	}
-	catch (const Bureaucrat::GradeTooLowException &e)
+	catch (const std::exception &e)
 	{
-		cout << "Exception type LOW caught: " << e.what() << endl;
+		cout << "Exception caught: " << e.what() << endl;
 	}
-	cout << b1 << endl;
-	cout << b2 << endl;
 
 	try
 	{
-		b1.increment();
 		b2.decrement();
 	}
 	catch (const std::exception &e)
