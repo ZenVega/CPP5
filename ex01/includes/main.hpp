@@ -14,5 +14,6 @@
 #define MAIN_HPP
 
 #include "../Bureaucrat/Bureaucrat.hpp"
+#include "../Form/Form.hpp"
 
 #endif
