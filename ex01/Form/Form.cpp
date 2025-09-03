@@ -64,7 +64,7 @@ int Form::getGradeExe(void) const
 	return _grade_exe;
 }
 
-void Form::beSigned(const Bureaucrat bureaucrat)
+void Form::beSigned(const Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.getGrade() > _grade_sign)
 		throw GradeTooLowException();
@@ -99,6 +99,6 @@ const char *Form::GradeTooLowException::what() const throw()
 
 ostream &operator<<(ostream &out, const Form &other)
 {
-	out << other.getName() << ", form grade to sign" << other.getGradeSign() << ", form grade to exe" << other.getGradeSign();
+	out << other.getName() << ", grade to sign: " << other.getGradeSign() << ", grade to exe: " << other.getGradeSign();
 	return out;
 }

@@ -15,33 +15,47 @@
 
 int main()
 {
-	Bureaucrat no_name;
 	Bureaucrat b1 = Bureaucrat("Wilhelm", 12);
 	Bureaucrat b2 = Bureaucrat("Toni", 150);
 	try
 	{
 		Form f1 = Form();
 		cout << f1 << endl;
-		f1.beSigned(b1);
+		b1.signForm(f1);
+	}
+	catch (const std::exception &e)
+	{
+		cout << "Exception caught: " << e.what() << endl;
+	}
+	try
+	{
 		Form f2 = Form("treaty", 20, 50);
 		cout << f2 << endl;
-		Form f3 = Form("bill", 20, 250);
+		b1.signForm(f2);
+	}
+	catch (const std::exception &e)
+	{
+		cout << "Exception caught: " << e.what() << endl;
+	}
+	try
+	{
+		Form f3 = Form("declare peace", 20, 50);
 		cout << f3 << endl;
+		b2.signForm(f3);
+	}
+	catch (const std::exception &e)
+	{
+		cout << "Exception caught: " << e.what() << endl;
+	}
+	try
+	{
+		Form f4 = Form("bill", 20, 250);
+		cout << f4 << endl;
 	}
 	catch (const std::exception &e)
 	{
 		cout << "Exception caught: " << e.what() << endl;
 	}
 
-	try
-	{
-		b2.decrement();
-	}
-	catch (const std::exception &e)
-	{
-		cout << "Exception caught: " << e.what() << endl;
-	}
-	cout << b1 << endl;
-	cout << b2 << endl;
 	return 0;
 }
