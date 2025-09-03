@@ -15,18 +15,18 @@
 
 Form::Form(void) :
 	_name("unknown"),
+	_signed(false),
 	_grade_sign(150),
-	_grade_exe(150),
-	_signed(false)
+	_grade_exe(150)
 {
 	cout << _name << "-Form created" << endl;
 }
 
 Form::Form(string name, int grade_sign, int grade_exe) :
 	_name(name),
+	_signed(false),
 	_grade_sign(grade_sign),
-	_grade_exe(grade_exe),
-	_signed(false)
+	_grade_exe(grade_exe)
 {
 	if (grade_sign > 150 || grade_exe > 150)
 		throw GradeTooHighException();
