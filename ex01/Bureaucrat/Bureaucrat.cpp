@@ -26,11 +26,24 @@ Bureaucrat::Bureaucrat(string name, int grade) :
 	cout << "An Burocreat of the name " << _name << " is appointed" << endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& other) :
+Bureaucrat::Bureaucrat(const Bureaucrat &other) :
 	_name(other.getName()),
 	_grade(other.getGrade())
 {
 	cout << "An Burocreat of the name " << _name << " is appointed" << endl;
+}
+
+void Bureaucrat::signForm(Form &toSign) const
+{
+	try
+	{
+		toSign.beSigned(*this);
+		cout << getName() << " signed " << toSign.getName() << endl;
+	}
+	catch (std::exception &e)
+	{
+		cout << getName() << " couldn’t sign " << toSign.getName() << "reason: " << e.what() << endl;
+	}
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)

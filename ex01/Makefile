@@ -22,8 +22,8 @@ CFILES += main.cpp
 vpath %.cpp $(SRC_FOLDER)Bureaucrat
 CFILES += Bureaucrat.cpp
 
-vpath %.cpp $(SRC_FOLDER)File
-CFILES += File.cpp
+vpath %.cpp $(SRC_FOLDER)Form
+CFILES += Form.cpp
 
 OFILES      = $(addprefix $(OBJ_FOLDER), $(notdir $(CFILES:.cpp=.o)))
 

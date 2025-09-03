@@ -13,6 +13,7 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
+#include "../Form/Form.hpp"
 #include "../includes/CONSTANTS.hpp"
 #include <bits/stdc++.h>
 #include <exception>
@@ -33,6 +34,7 @@ public:
 	void		setGrade(int grade);
 	string		getName(void) const;
 	Bureaucrat &operator=(const Bureaucrat &other);
+	void		signForm(Form &toSign) const;
 
 	void increment(void);
 	void decrement(void);
@@ -41,7 +43,7 @@ public:
 	public:
 		// Override what() function
 		const char *what() const throw(); // c+++98 synthx deprecated in c++11;
-		// const char *what() const noexcept override;
+										  // const char *what() const noexcept override;
 	};
 
 	class GradeTooLowException : public std::exception

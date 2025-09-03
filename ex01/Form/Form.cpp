@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../Bureaucrat/Bureaucrat.hpp"
 #include "Form.hpp"
 
 Form::Form(void) :
@@ -63,6 +64,13 @@ int Form::getGradeExe(void) const
 	return _grade_exe;
 }
 
+void Form::beSigned(const Bureaucrat bureaucrat)
+{
+	if (bureaucrat.getGrade() > _grade_sign)
+		throw GradeTooLowException();
+	_signed = true;
+}
+
 Form &Form::operator=(const Form &other)
 {
 	if (this != &other)
@@ -81,12 +89,12 @@ Form::~Form()
 
 const char *Form::GradeTooHighException::what() const throw()
 {
-	return "A Burocreat cannot have that high a rank";
+	return "Grade too high";
 }
 
 const char *Form::GradeTooLowException::what() const throw()
 {
-	return "A Burocreats can never have that low a grade";
+	return "Grade too low";
 }
 
 ostream &operator<<(ostream &out, const Form &other)
