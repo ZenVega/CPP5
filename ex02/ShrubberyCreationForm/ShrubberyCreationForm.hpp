@@ -6,7 +6,7 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 14:12:44 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/09/04 14:34:29 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/09/04 15:07:22 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,11 @@
 #define SHRUBBERY_CREATION_FORM_HPP
 
 // Raw String literal // ignores excape characters
-#define TREE R"(     ccee88oo
-  C8O8O8Q8PoOb o8oo
- dOB69QO8PdUOpugoO9bD
-CgggbU8OU qOp qOdoUOdcb
-    6OuU  /p u gcoUodpP
-      \//  /douUP
-        \////
-         |||\
-         |||/
-         |||||
-   .....//||||....)"
+#define TREE "     ccee88oo\n  C8O8O8Q8PoOb o8oo\n dOB69QO8PdUOpugoO9bD\nCgggbU8OU qOp qOdoUOdcb\n    6OuU  /p u gcoUodpP\n      \\\\//  /douUP\n        \\\\////\n         |||\\\\\n         |||/\n         |||||\n   .....//||||\\\\....."
 
 #include "../AForm/AForm.hpp"
+#include <iostream>
+
 class ShrubberyCreationForm : public AForm
 {
 private:
@@ -34,7 +26,7 @@ private:
 
 public:
 	ShrubberyCreationForm();
-	ShrubberyCreationForm(string &target);
+	ShrubberyCreationForm(const string &target);
 	ShrubberyCreationForm(const ShrubberyCreationForm &other);
 	~ShrubberyCreationForm();
 	ShrubberyCreationForm &operator=(const ShrubberyCreationForm &other);

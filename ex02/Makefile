@@ -6,7 +6,7 @@
 #    By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/10 10:00:21 by uschmidt          #+#    #+#              #
-#    Updated: 2025/09/02 11:40:28 by uschmidt         ###   ########.fr        #
+#    Updated: 2025/09/04 14:52:46 by uschmidt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,14 @@ CFILES += main.cpp
 vpath %.cpp $(SRC_FOLDER)Bureaucrat
 CFILES += Bureaucrat.cpp
 
-vpath %.cpp $(SRC_FOLDER)Form
-CFILES += Form.cpp
+vpath %.cpp $(SRC_FOLDER)AForm
+CFILES += AForm.cpp
+
+vpath %.cpp $(SRC_FOLDER)RobotomyRequestForm
+CFILES += RobotomyRequestForm.cpp
+
+vpath %.cpp $(SRC_FOLDER)ShrubberyCreationForm
+CFILES += ShrubberyCreationForm.cpp
 
 OFILES      = $(addprefix $(OBJ_FOLDER), $(notdir $(CFILES:.cpp=.o)))
 

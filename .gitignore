@@ -1,6 +1,9 @@
+.gitignore
+
 ex00/bureaucrat
 ex01/maggots
 ex02/aform
+ex02/to_shrub_shrubbery
 
 **/build
 

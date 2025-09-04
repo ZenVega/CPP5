@@ -6,7 +6,7 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 12:56:18 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/09/04 14:06:04 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/09/04 15:11:44 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ RobotomyRequestForm::RobotomyRequestForm() :
 	AForm("DefaultRobotRequestForm", 72, 45),
 	_target("null")
 {
-	cout << "Default RobotomyRewuestForm created";
+	cout << "Default RobotomyRewuestForm created" << endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(string &target) :
+RobotomyRequestForm::RobotomyRequestForm(const string &target) :
 	AForm("DefaultRobotRequestForm", 72, 45),
 	_target(target)
 {
-	cout << getName() << " created";
+	cout << getName() << " created" << endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &other) :
@@ -32,7 +32,7 @@ RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &other) :
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-	cout << "RobotomyRewuestForm burned";
+	cout << "RobotomyRewuestForm burned" << endl;
 }
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &other)
@@ -44,9 +44,16 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &o
 
 void RobotomyRequestForm::beExecuted() const
 {
-	time_t timestamp = time(NULL);
+	time_t timestamp;
+	time(&timestamp);
+
 	if (timestamp % 2)
 		cout << "crank crank shringshring cchrrrrhrhrhhshfshsdht. bing bing" << _target << " robotomized" << endl;
 	else
 		cout << "Robotomization of " << _target << " failed!" << endl;
+}
+
+string RobotomyRequestForm::getTarget() const
+{
+	return _target;
 }

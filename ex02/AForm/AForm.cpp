@@ -77,6 +77,7 @@ void AForm::execute(Bureaucrat const &executor) const
 		throw NotSignedException();
 	if (executor.getGrade() > _grade_sign)
 		throw GradeTooLowException();
+	beExecuted();
 }
 
 AForm &AForm::operator=(const AForm &other)

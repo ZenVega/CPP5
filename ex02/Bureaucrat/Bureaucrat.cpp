@@ -6,7 +6,7 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 11:28:55 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/09/02 11:43:22 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/09/04 15:08:10 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &other) :
 	cout << "An Burocreat of the name " << _name << " is appointed" << endl;
 }
 
-void Bureaucrat::signForm(Form &toSign) const
+void Bureaucrat::signForm(AForm &toSign) const
 {
 	try
 	{
@@ -43,6 +43,19 @@ void Bureaucrat::signForm(Form &toSign) const
 	catch (std::exception &e)
 	{
 		cout << getName() << " couldn’t sign " << toSign.getName() << "reason: " << e.what() << endl;
+	}
+}
+
+void Bureaucrat::executeForm(AForm const &form) const
+{
+	try
+	{
+		form.execute(*this);
+		cout << getName() << " executed " << form.getName() << endl;
+	}
+	catch (std::exception &e)
+	{
+		cout << getName() << " couldn’t execute " << form.getName() << "reason: " << e.what() << endl;
 	}
 }
 

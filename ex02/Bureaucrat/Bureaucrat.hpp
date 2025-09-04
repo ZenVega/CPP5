@@ -6,7 +6,7 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 10:49:49 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/09/02 11:26:15 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/09/04 15:08:00 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,13 @@ public:
 	string		getName(void) const;
 	Bureaucrat &operator=(const Bureaucrat &other);
 	void		signForm(AForm &toSign) const;
-
-	void increment(void);
-	void decrement(void);
+	void		executeForm(AForm const &form) const;
+	void		increment(void);
+	void		decrement(void);
 	class GradeTooHighException : public std::exception
 	{
 	public:
-		// Override what() function
-		const char *what() const throw(); // c+++98 synthx deprecated in c++11;
-										  // const char *what() const noexcept override;
+		const char *what() const throw();
 	};
 
 	class GradeTooLowException : public std::exception
