@@ -6,7 +6,7 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 15:26:15 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/09/04 15:07:04 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/09/05 11:59:11 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ int main()
 	{
 		cout << "Exception caught: " << e.what() << endl;
 	}
+	Bureaucrat b3 = Bureaucrat("Master Bureaucrat", 1);
 	try
 	{
-		RobotomyRequestForm f1 = RobotomyRequestForm("robo_shrubbery");
-		cout << f1 << endl;
-		b1.signForm(f1);
-		b1.executeForm(f1);
-		b2.executeForm(f1);
+		PresidentialPardonForm f3 = PresidentialPardonForm("to_pardon");
+		cout << f3 << endl;
+		b3.signForm(f3);
+		b3.executeForm(f3);
 	}
 	catch (const std::exception &e)
 	{

@@ -6,7 +6,7 @@
 #    By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/10 10:00:21 by uschmidt          #+#    #+#              #
-#    Updated: 2025/09/04 14:52:46 by uschmidt         ###   ########.fr        #
+#    Updated: 2025/09/05 11:57:20 by uschmidt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,9 @@ CFILES += RobotomyRequestForm.cpp
 
 vpath %.cpp $(SRC_FOLDER)ShrubberyCreationForm
 CFILES += ShrubberyCreationForm.cpp
+
+vpath %.cpp $(SRC_FOLDER)PresidentialPardonForm
+CFILES += PresidentialPardonForm.cpp
 
 OFILES      = $(addprefix $(OBJ_FOLDER), $(notdir $(CFILES:.cpp=.o)))
 
