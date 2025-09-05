@@ -14,7 +14,10 @@
 #define ROBOTOMY_REQUEST_FORM_HPP
 
 #include "../AForm/AForm.hpp"
+#include <iostream>
+#include <sstream>
 
+#define ROBOTOMIZER "🤖⚙️🔩------------------🔩⚙️🤖"
 class RobotomyRequestForm : public AForm
 {
 private:

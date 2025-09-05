@@ -19,11 +19,11 @@ int main()
 	Bureaucrat b2 = Bureaucrat("Toni", 150);
 	try
 	{
-		RobotomyRequestForm f1 = RobotomyRequestForm("to_robotomize");
-		cout << f1 << endl;
-		b1.signForm(f1);
-		b1.executeForm(f1);
-		b2.executeForm(f1);
+		ShrubberyCreationForm f2 = ShrubberyCreationForm("robo");
+		cout << f2 << endl;
+		b1.signForm(f2);
+		b1.executeForm(f2);
+		b2.executeForm(f2);
 	}
 	catch (const std::exception &e)
 	{
@@ -31,11 +31,11 @@ int main()
 	}
 	try
 	{
-		ShrubberyCreationForm f2 = ShrubberyCreationForm("to_shrub");
-		cout << f2 << endl;
-		b1.signForm(f2);
-		b1.executeForm(f2);
-		b2.executeForm(f2);
+		RobotomyRequestForm f1 = RobotomyRequestForm("robo_shrubbery");
+		cout << f1 << endl;
+		b1.signForm(f1);
+		b1.executeForm(f1);
+		b2.executeForm(f1);
 	}
 	catch (const std::exception &e)
 	{

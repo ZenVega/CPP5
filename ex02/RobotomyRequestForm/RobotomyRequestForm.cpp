@@ -12,6 +12,33 @@
 
 #include "RobotomyRequestForm.hpp"
 
+bool robotomize_target(string target)
+{
+	std::ifstream sourceFile(target.c_str());
+	string		  buffer;
+	if (sourceFile)
+	{
+		std::ostringstream ss;
+		ss << sourceFile.rdbuf();
+		buffer = ss.str();
+		sourceFile.close();
+	}
+	std::ofstream TargetFile(target.c_str());
+	if (TargetFile)
+	{
+		TargetFile << ROBOTOMIZER << endl;
+		if (sourceFile)
+		{
+			TargetFile << buffer << endl;
+		}
+		TargetFile << ROBOTOMIZER << endl;
+		TargetFile.close();
+		return true;
+	}
+	cout << "Could not create/open file" << endl;
+	return false;
+}
+
 RobotomyRequestForm::RobotomyRequestForm() :
 	AForm("DefaultRobotRequestForm", 72, 45),
 	_target("null")
@@ -48,7 +75,10 @@ void RobotomyRequestForm::beExecuted() const
 	time(&timestamp);
 
 	if (timestamp % 2)
-		cout << "crank crank shringshring cchrrrrhrhrhhshfshsdht. bing bing" << _target << " robotomized" << endl;
+	{
+		if (robotomize_target(_target))
+			cout << "crank crank shringshring cchrrrrhrhrhhshfshsdht. bing bing" << _target << " robotomized" << endl;
+	}
 	else
 		cout << "Robotomization of " << _target << " failed!" << endl;
 }

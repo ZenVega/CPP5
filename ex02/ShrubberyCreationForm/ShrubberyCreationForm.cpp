@@ -47,7 +47,10 @@ void ShrubberyCreationForm::beExecuted() const
 	string		  newTarget = getTarget() + "_shrubbery";
 	std::ofstream TargetFile(newTarget.c_str());
 	if (TargetFile)
+	{
 		TargetFile << TREE;
+		TargetFile.close();
+	}
 	else
 		cout << "Could not create/open file" << endl;
 }
