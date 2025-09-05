@@ -22,6 +22,9 @@ CFILES += main.cpp
 vpath %.cpp $(SRC_FOLDER)Bureaucrat
 CFILES += Bureaucrat.cpp
 
+vpath %.cpp $(SRC_FOLDER)Intern
+CFILES += Intern.cpp
+
 vpath %.cpp $(SRC_FOLDER)AForm
 CFILES += AForm.cpp
 

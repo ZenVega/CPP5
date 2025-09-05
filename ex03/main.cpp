@@ -16,30 +16,26 @@
 int main()
 {
 	Bureaucrat b1 = Bureaucrat("Wilhelm", 12);
-	Bureaucrat b2 = Bureaucrat("Toni", 150);
+	Intern	   i2 = Intern();
 	try
 	{
-		ShrubberyCreationForm f2 = ShrubberyCreationForm("robo");
-		cout << f2 << endl;
-		b1.signForm(f2);
-		b1.executeForm(f2);
-		b2.executeForm(f2);
+		AForm *form = i2.makeForm("shrub_shrub", "shrubbery creation");
+		cout << *form << endl;
+		b1.signForm(*form);
+		b1.executeForm(*form);
+		if (form != NULL)
+			delete form;
+		AForm *false_form = i2.makeForm("birth certificate", "birth");
+		cout << *false_form << endl;
+		b1.signForm(*false_form);
+		b1.executeForm(*false_form);
+		if (false_form)
+			delete false_form;
 	}
 	catch (const std::exception &e)
 	{
 		cout << "Exception caught: " << e.what() << endl;
 	}
 	Bureaucrat b3 = Bureaucrat("Master Bureaucrat", 1);
-	try
-	{
-		PresidentialPardonForm f3 = PresidentialPardonForm("to_pardon");
-		cout << f3 << endl;
-		b3.signForm(f3);
-		b3.executeForm(f3);
-	}
-	catch (const std::exception &e)
-	{
-		cout << "Exception caught: " << e.what() << endl;
-	}
 	return 0;
 }

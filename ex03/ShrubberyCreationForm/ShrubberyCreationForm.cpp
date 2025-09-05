@@ -20,7 +20,7 @@ ShrubberyCreationForm::ShrubberyCreationForm() :
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const string &target) :
-	AForm("DefaultShrubberyCreationForm", 145, 137),
+	AForm("ShrubberyCreationForm", 145, 137),
 	_target(target)
 {
 	cout << getName() << " created" << endl;

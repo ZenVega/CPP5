@@ -30,7 +30,7 @@ public:
 	AForm();
 	AForm(string name, int grade_sign, int grade_exe);
 	AForm(const AForm &other);
-	~AForm();
+	virtual ~AForm();
 
 	AForm &operator=(const AForm &other);
 

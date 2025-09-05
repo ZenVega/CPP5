@@ -15,6 +15,7 @@
 
 #include "../AForm/AForm.hpp"
 #include "../Bureaucrat/Bureaucrat.hpp"
+#include "../Intern/Intern.hpp"
 #include "../PresidentialPardonForm/PresidentialPardonForm.hpp"
 #include "../RobotomyRequestForm/RobotomyRequestForm.hpp"
 #include "../ShrubberyCreationForm/ShrubberyCreationForm.hpp"
